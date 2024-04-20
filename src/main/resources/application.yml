@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: Inventario
+  jpa:
+    show-sql: false
+    format-sql: true
+    database-platform: org.hibernate.dialect.OracleDialect
+    properties:
+      hibernate:
+        proc:
+          param_null_passing: true
+  redis:
+    host: ${HOST_REDIS:localhost}
+    port: ${PORT_REDIS:6379}
+    duration-minutes: ${DURATION_MINUTES_REDIS:10}
+
+server:
+  port: 8081
+  tomcat:
+      max-threads: 200
+
+# swagger and api-docs
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+    packagesToScan: com.olsoftware
+
+app:
+  standard-date-formatter: ${DEFAULT_DATE_APP:yyyy-MM-dd HH:mm:ss.SSS}
+
+security:
+  jwt:
+    expiration-minutes: ${OL_SOFTWARE_JWT_EXPIRATION_MINUTES:30}
+    secret-key: ${OL_SOFTWARE_JWT_SECRET_KEY:UOn0zSEMN2xRVkyHqKIoO9Sgtu+tKB+AQbd5X3FjNUY=}
+
+datasource:
+  url: ${SPRING_DATASOURCE_URL:jdbc:oracle:thin:@localhost:1521:xe}
+  jdbc-url: ${SPRING_DATASOURCE_URL:jdbc:oracle:thin:@localhost:1521:xe}
+  username: ${SPRING_DATASOURCE_USERNAME:OLSOFTWARE}
+  password: ${SPRING_DATASOURCE_PASSWORD:OLSOFTWARE}
+  type: com.zaxxer.hikari.HikariDataSource
+  #connection-test-query: SELECT 1 FROM DUAL
+  pool-name: pool-hikari-olsoftware
+  maximum-pool-size: 10
+  minimum-idle: 5
+  idle-timeout: 300000
+  connection-timeout: 30000
