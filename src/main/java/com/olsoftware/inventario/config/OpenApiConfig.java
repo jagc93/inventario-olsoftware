@@ -16,8 +16,8 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 						+ "también permite la gestión y parametrización de características y datos técnicos del dispositivo.",
 				version = "0.0.1",
 				license = @License(
-						name = "Apache 2.0",
-						url = "http://springdoc.org"
+						name = "Creative Commons NC",
+						url = "https://creativecommons.org/licenses/by-nc/4.0/"
 				)
 		),
 		security = {
@@ -32,6 +32,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 		bearerFormat = "JWT",
 		in = SecuritySchemeIn.HEADER
 )
+
 public class OpenApiConfig {
 
 }
